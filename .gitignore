@@ -1,0 +1,10 @@
+**/.idea
+**/.classpath
+**/.project
+**/*.prefs
+**/.factorypath
+.vscode/*
+.DS_STORE
+.idea/**
+**/*.iml
+./target/
