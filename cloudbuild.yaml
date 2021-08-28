@@ -14,7 +14,7 @@ steps:
                       	</server>\
                      </servers>\
                      <offline>false</offline>\
-                  </settings>" > settings.xml && mvn package -DskipTests -s settings.xml
+                  </settings>" > settings.xml && cat settings.xml &&  mvn package -DskipTests -s settings.xml
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
