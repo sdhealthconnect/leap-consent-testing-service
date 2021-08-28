@@ -4,18 +4,8 @@ steps:
     args:
       - '-c'
       - |
-        echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-                  <settings xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd\" xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\"\
-                  		  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\
-                     <servers>\
-                     	<server>\
-                        		<id>github<\/id>\
-                        		<username>${_GITHUB_USERNAME}</username>\
-                  	      	<password>${_GITHUB_PWD}</password>\
-                      	</server>\
-                     </servers>\
-                     <offline>false</offline>\
-                  </settings>" > settings.xml && cat settings.xml &&  mvn package -DskipTests -s settings.xml
+        echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><settings xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd\" xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <servers> <server>  <id>github<\/id> <username>${_GITHUB_USERNAME}</username> <password>${_GITHUB_PWD}</password> </server> </servers> <offline>false</offline> </settings>" > settings.xml
+        && cat settings.xml &&  mvn package -DskipTests -s settings.xml
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
